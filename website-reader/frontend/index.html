@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Website Reader</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="input-panel" aria-labelledby="app-title">
+        <div class="title-block">
+          <p class="eyebrow">Website Reader</p>
+          <h1 id="app-title">Ask a website anything.</h1>
+        </div>
+
+        <form id="reader-form" class="reader-form">
+          <label for="website-url">Website URL</label>
+          <input
+            id="website-url"
+            name="url"
+            type="url"
+            placeholder="https://www.example.com"
+            autocomplete="url"
+            required
+          >
+
+          <label for="user-prompt">Prompt</label>
+          <textarea
+            id="user-prompt"
+            name="prompt"
+            rows="8"
+            placeholder="Summarize this website and call out important announcements."
+            required
+          ></textarea>
+
+          <button id="submit-button" type="submit">
+            <span class="button-label">Analyze Website</span>
+            <span class="button-loader" aria-hidden="true"></span>
+          </button>
+        </form>
+      </section>
+
+      <section class="output-panel" aria-live="polite">
+        <div class="output-header">
+          <div>
+            <p class="eyebrow">Output</p>
+            <h2>Response</h2>
+          </div>
+          <span id="status-pill" class="status-pill">Ready</span>
+        </div>
+
+        <div id="empty-state" class="empty-state">
+          Enter a URL and prompt, then run the analysis.
+        </div>
+
+        <article id="result" class="result" hidden></article>
+        <p id="meta" class="meta" hidden></p>
+      </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
